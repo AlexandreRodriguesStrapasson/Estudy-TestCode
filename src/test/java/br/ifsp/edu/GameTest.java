@@ -47,7 +47,19 @@ public class GameTest {
             game.roll(0);
         }
         assertThat(game.score()).isEqualTo(24);
+    }
 
+    @Test
+    @DisplayName("Should get bonus if strikes")
+    void shouldGetBonusIfStrikes() {
+        game.roll(10);
+        game.roll(5);
+        game.roll(3);
+        for (int i = 0; i < 16; i++) {
+            game.roll(0);
+        }
+
+        assertThat(game.score()).isEqualTo(26);
     }
 
 
